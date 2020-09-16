@@ -29,9 +29,9 @@ function fetchCharacter(e){
 
 function displayCharacter(character){
     let who = document.createElement("h1");
-    who.style = "font-size: 15vw; font-family: 'Kaushan Script', cursive; color: antiquewhite; transform: rotate(-10deg);"; // consider a loop to dictate answer and size?
+    who.style = "font-size: ; font-family: 'Kaushan Script', cursive; color: antiquewhite; transform: rotate(-10deg);"; // consider a loop to dictate answer and size?
     let where = document.createElement("h2");
-    where.style = "font-size: 3vw; font-family: 'Nanum Brush Script', cursive; color: antiquewhite;"
+    where.style = "font-size: ; font-family: 'Nanum Brush Script', cursive; color: antiquewhite; margin-top: 1em"
 
     submit.innerText = 'Another?';
   
@@ -41,6 +41,13 @@ function displayCharacter(character){
     for (let c of character ){
         if ( c == v ){
         who.innerText = c.name;
+        if (c.name.length > 20) {
+            who.style.fontSize = '5.5rem';
+        } else if (c.name.length < 6) {
+            who.style.fontSize = '20rem'; // why is it "rem"
+        } else {
+            who.style.fontSize = '10rem';
+        }
         
         let  appearances = c.films;
         console.log(appearances);
